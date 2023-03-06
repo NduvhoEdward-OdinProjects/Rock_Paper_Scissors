@@ -48,7 +48,7 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
 
-        const playerSelection = "rock";
+        const playerSelection = prompt('Please enter a move of your choice between "Rock" "Paper" and "Scissor": ');
         const computerSelection = getComputerChoice();
         let roundOutcome = playRound(playerSelection, computerSelection);
 
@@ -61,9 +61,9 @@ function game() {
         }
     }
 
-    console.log(playerWins);
-    console.log(computerWins);
-    console.log(ties);
+    console.log(`The player won ${playerWins} times,`);
+    console.log(`Lost ${computerWins} times,`);
+    console.log(`And tied ${ties} times`);
 }
 
 game();
