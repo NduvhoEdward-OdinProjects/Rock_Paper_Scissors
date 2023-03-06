@@ -1,14 +1,10 @@
-console.log("Hellow");
 //let userChoice = prompt("Please enter the name of your move: ");
-//console.log(userChoice); 
 
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
     let choiceIndex = Math.floor(Math.random() * 3);
-    console.log(choiceIndex);
     return choices[choiceIndex];
 }
-console.log(getComputerChoice());
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
@@ -21,7 +17,7 @@ function playRound(playerSelection, computerSelection) {
         case 'rock':
             if (computerSelection == 'scissors') {
                 return `You win, ${playerSelection} beats ${computerSelection}`;
-            } else if (computerSelection == 'Paper') {
+            } else if (computerSelection == 'paper') {
                 return `You lose, ${playerSelection} beats ${computerSelection}`;
             }
             break;
@@ -43,3 +39,11 @@ function playRound(playerSelection, computerSelection) {
             break;
     }
 }
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice(); 
+
+console.log(playerSelection);
+console.log(computerSelection);
+
+console.log(playRound(playerSelection, computerSelection));
