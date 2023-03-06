@@ -1,4 +1,4 @@
-//let userChoice = prompt("Please enter the name of your move: ");
+// A Rock-Paper-Scissor game 
 
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
@@ -41,25 +41,22 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice(); 
-
-console.log(playerSelection);
-console.log(computerSelection);
-
 function game() {
-    let playerWins = 0, 
-        computerWins = 0, 
+    let playerWins = 0,
+        computerWins = 0,
         ties = 0;
 
     for (let i = 0; i < 5; i++) {
+
+        const playerSelection = "rock";
+        const computerSelection = getComputerChoice();
         let roundOutcome = playRound(playerSelection, computerSelection);
 
         if (roundOutcome.includes('win')) {
             playerWins++;
-        } else if (roundOutcome.includes('loose')){
+        } else if (roundOutcome.includes('loose')) {
             computerWins++;
-        } else if (roundOutcome.includes('Tie')){
+        } else if (roundOutcome.includes('Tie')) {
             ties++;
         }
     }
