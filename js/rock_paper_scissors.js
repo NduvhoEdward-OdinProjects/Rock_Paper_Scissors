@@ -7,6 +7,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    console.log(playerSelection);
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
@@ -18,21 +19,21 @@ function playRound(playerSelection, computerSelection) {
             if (computerSelection == 'scissors') {
                 return `You win, ${playerSelection} beats ${computerSelection}`;
             } else if (computerSelection == 'paper') {
-                return `You lose, ${playerSelection} beats ${computerSelection}`;
+                return `You loose, ${playerSelection} beats ${computerSelection}`;
             }
             break;
         case 'paper':
             if (computerSelection == 'rock') {
                 return `You win, ${playerSelection} beats ${computerSelection}`;
             } else if (computerSelection == 'scissors') {
-                return `You lose, ${playerSelection} beats ${computerSelection}`;
+                return `You loose, ${playerSelection} beats ${computerSelection}`;
             }
             break;
         case 'scissors':
             if (computerSelection == 'paper') {
                 return `You win, ${playerSelection} beats ${computerSelection}`;
             } else if (computerSelection == 'rock') {
-                return `You lose, ${playerSelection} beats ${computerSelection}`;
+                return `You loose, ${playerSelection} beats ${computerSelection}`;
             }
             break;
         default:
@@ -46,4 +47,26 @@ const computerSelection = getComputerChoice();
 console.log(playerSelection);
 console.log(computerSelection);
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerWins = 0, 
+        computerWins = 0, 
+        ties = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let roundOutcome = playRound(playerSelection, computerSelection);
+
+        if (roundOutcome.includes('win')) {
+            playerWins++;
+        } else if (roundOutcome.includes('loose')){
+            computerWins++;
+        } else if (roundOutcome.includes('Tie')){
+            ties++;
+        }
+    }
+
+    console.log(playerWins);
+    console.log(computerWins);
+    console.log(ties);
+}
+
+game();
