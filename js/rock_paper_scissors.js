@@ -4,8 +4,39 @@ console.log("Hellow");
 
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
-    let choiceIndex = 0;
+    let choiceIndex = Math.floor(Math.random() * 3);
+    console.log(choiceIndex);
     return choices[choiceIndex];
 }
 console.log(getComputerChoice());
 
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "Tie"
+    }
+    switch (playerSelection) {
+        case 'rock':
+            if (computerSelection == 'scissors') {
+                return `You win, ${playerSelection} beats ${computerSelection}`;
+            } else if (computerSelection == 'Paper') {
+                return `You lose, ${playerSelection} beats ${computerSelection}`;
+            }
+            break;
+        case 'paper':
+            if (computerSelection == 'rock') {
+                return `You win, ${playerSelection} beats ${computerSelection}`;
+            } else if (computerSelection == 'scissors') {
+                return `You lose, ${playerSelection} beats ${computerSelection}`;
+            }
+            break;
+        case 'scissors':
+            if (computerSelection == 'paper') {
+                return `You win, ${playerSelection} beats ${computerSelection}`;
+            } else if (computerSelection == 'rock') {
+                return `You lose, ${playerSelection} beats ${computerSelection}`;
+            }
+            break;
+        default:
+            break;
+    }
+}
