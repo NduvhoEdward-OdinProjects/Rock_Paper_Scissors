@@ -11,6 +11,9 @@ function getComputerChoice() {
 console.log(getComputerChoice());
 
 function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+
     if (playerSelection == computerSelection) {
         return "Tie"
     }
