@@ -26,41 +26,17 @@ return `You loose, ${computerSelection} beats ${playerSelection}`;
 }
 
 
-function game() {
-  let playerWins = 0,
-  computerWins = 0,
-  ties = 0;
-
-  /*
-for (let i = 0; i < 5; i++) {
-
-  const playerSelection = prompt('Please enter a move of your choice between "Rock" "Paper" and "Scissor": ');
-  const computerSelection = getComputerChoice();
-  let roundOutcome = playRound(playerSelection, computerSelection);
-
-  if (roundOutcome.includes('win')) {
-      playerWins++;
-  } else if (roundOutcome.includes('loose')) {
-      computerWins++;
-  } else if (roundOutcome.includes('Tie')) {
-      ties++;
-  }
-}
-*/
-
-  console.log(`The player won ${playerWins} times,`);
-  console.log(`Lost ${computerWins} times,`);
-  console.log(`And tied ${ties} times`);
-}
+let playerWins = 0,
+    computerWins = 0,
+    ties = 0; 
 
 const bod = document.querySelector('body');
 
 const matchOutcomes = document.createElement('div');
-matchOutcomes.style.color = 'yellow'; 
-matchOutcomes.style.fontSize = '40px';
-matchOutcomes.style.padding = '24px';
-matchOutcomes.style.margin = '24px';
-matchOutcomes.style.textAlign = 'center';
+
+matchOutcomes.setAttribute('style', 
+    'text-align: center; font-size: 40px; color: yellow; padding:24px; margin:24px');
+
 matchOutcomes.textContent = 'Begin!';
 
 bod.appendChild(matchOutcomes);
@@ -74,7 +50,7 @@ buttons.forEach((btn) => {
     console.log(`${playerSelection}  ${computerSelection}`);
     console.log(playRound(playerSelection, computerSelection)); 
 
-    matchOutcomes.textContent = `${playerSelection}  ${computerSelection}`;
+    matchOutcomes.textContent = `Wins: ${playerWins} | Draws: ${ties} | DangIt: ${computerWins}`;
   }); 
 
 });
