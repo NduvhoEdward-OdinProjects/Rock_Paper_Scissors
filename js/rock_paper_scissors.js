@@ -33,32 +33,35 @@ return lost;
 let playerWins = 0, 
     playerLoses = 0, 
     ties = 0; 
-let roundsSoFar = 0;
 
 const bod = document.querySelector('body');
 
 const matchOutcomes = document.createElement('div');
+const matchComments = document.createElement('div');
 
 matchOutcomes.classList.add('scoreBar');
+matchComments.classList.add('matchComments');
 
 matchOutcomes.textContent = 'Begin!';
+matchComments.textContent = "You've got this!";
 
 bod.appendChild(matchOutcomes);
+bod.appendChild(matchComments);
 
 const buttons = document.querySelectorAll(".player-selections>button");
 buttons.forEach((btn) => {
+  btn.addEventListener('click', playGame); 
+});
 
-  btn.addEventListener('click', ()=> {
+function playGame(event) {
     computerSelection = getComputerChoice();
-    playerSelection = btn.id;
+    playerSelection = event.target.id;
     let roundOutcome = playRound(playerSelection, computerSelection); 
     statsUpdate(roundOutcome);
     matchOutcomes.textContent = `Wins: ${playerWins} | Draws: ${ties} | DangIt: ${playerLoses}`;
-    roundsSoFar++;
-    gameStatus(roundsSoFar);
-  }); 
+    gameStatus();
+}
 
-});
 
 function statsUpdate(outCome) {
     if(outCome==1) playerWins++;
@@ -67,9 +70,15 @@ function statsUpdate(outCome) {
 }
 
 function gameStatus(roundsSoFar) {
-    if (roundsSoFar===5) {
-        1;
-    } 
+    if (playerWins==5||playerLoses==5) {
+        pauseListeners();
+    }
+}
+
+function pauseListeners() {
+    buttons.forEach((btn) => {
+        btn.removeEventListener('click', playGame);
+    });
 }
 
 

@@ -26,10 +26,17 @@ p {
     border-radius: 8px;
 }
 
-.scoreBar {
+.scoreBar,
+.matchComments{
     text-align: center;
     font-size: 40px;
     color: yellow;
     padding:24px;
     margin:24px
+}
+
+.matchComments {
+    font-size: 24px;
+    padding: 16px;
+    margin: 16px;
 }
