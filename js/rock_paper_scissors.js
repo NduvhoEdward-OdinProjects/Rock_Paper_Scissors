@@ -81,4 +81,10 @@ function pauseListeners() {
     });
 }
 
+const restartBtn = document.createElement('button');
+restartBtn.classList.add('restart-btn');
+restartBtn.textContent = 'Play Again';
+
+bod.appendChild(restartBtn);
+
 
