@@ -53,10 +53,19 @@ for (let i = 0; i < 5; i++) {
   console.log(`And tied ${ties} times`);
 }
 
-//game(); 
+const bod = document.querySelector('body');
+
+const matchOutcomes = document.createElement('div');
+matchOutcomes.style.color = 'yellow'; 
+matchOutcomes.style.fontSize = '40px';
+matchOutcomes.style.padding = '24px';
+matchOutcomes.style.margin = '24px';
+matchOutcomes.style.textAlign = 'center';
+matchOutcomes.textContent = 'Begin!';
+
+bod.appendChild(matchOutcomes);
 
 const buttons = document.querySelectorAll(".player-selections>button");
-
 buttons.forEach((btn) => {
 
   btn.addEventListener('click', ()=> {
@@ -64,7 +73,11 @@ buttons.forEach((btn) => {
     playerSelection = btn.id;
     console.log(`${playerSelection}  ${computerSelection}`);
     console.log(playRound(playerSelection, computerSelection)); 
+
+    matchOutcomes.textContent = `${playerSelection}  ${computerSelection}`;
   }); 
 
 });
+
+
 
