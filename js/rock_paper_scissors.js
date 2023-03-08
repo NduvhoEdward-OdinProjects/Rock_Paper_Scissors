@@ -10,8 +10,12 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
 
+  let won = 1;
+  let tied = 0;
+  let lost = -1;
+
   if (playerSelection === computerSelection) {
-    return "Tie";
+    return tied;
 }
 
 if (
@@ -19,23 +23,23 @@ if (
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
     ) {
-    return `You win, ${playerSelection} beats ${computerSelection}`;
+    return won;
 }
 
-return `You loose, ${computerSelection} beats ${playerSelection}`;
+return lost;
 }
 
 
-let playerWins = 0,
-    computerWins = 0,
+let playerWins = 0, 
+    playerLoses = 0, 
     ties = 0; 
+let roundsSoFar = 0;
 
 const bod = document.querySelector('body');
 
 const matchOutcomes = document.createElement('div');
 
-matchOutcomes.setAttribute('style', 
-    'text-align: center; font-size: 40px; color: yellow; padding:24px; margin:24px');
+matchOutcomes.classList.add('scoreBar');
 
 matchOutcomes.textContent = 'Begin!';
 
@@ -47,13 +51,25 @@ buttons.forEach((btn) => {
   btn.addEventListener('click', ()=> {
     computerSelection = getComputerChoice();
     playerSelection = btn.id;
-    console.log(`${playerSelection}  ${computerSelection}`);
-    console.log(playRound(playerSelection, computerSelection)); 
-
-    matchOutcomes.textContent = `Wins: ${playerWins} | Draws: ${ties} | DangIt: ${computerWins}`;
+    let roundOutcome = playRound(playerSelection, computerSelection); 
+    statsUpdate(roundOutcome);
+    matchOutcomes.textContent = `Wins: ${playerWins} | Draws: ${ties} | DangIt: ${playerLoses}`;
+    roundsSoFar++;
+    gameStatus(roundsSoFar);
   }); 
 
 });
 
+function statsUpdate(outCome) {
+    if(outCome==1) playerWins++;
+    else if (outCome==-1) playerLoses++;
+    else ties++;
+}
+
+function gameStatus(roundsSoFar) {
+    if (roundsSoFar===5) {
+        1;
+    } 
+}
 
 

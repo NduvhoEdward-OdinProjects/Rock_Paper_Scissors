@@ -26,3 +26,10 @@ p {
     border-radius: 8px;
 }
 
+.scoreBar {
+    text-align: center;
+    font-size: 40px;
+    color: yellow;
+    padding:24px;
+    margin:24px
+}
