@@ -7,39 +7,24 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log(playerSelection);
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
+  playerSelection = playerSelection.toLowerCase();
+  computerSelection = computerSelection.toLowerCase();
 
-    if (playerSelection == computerSelection) {
-        return "Tie"
-    }
-    switch (playerSelection) {
-        case 'rock':
-            if (computerSelection == 'scissors') {
-                return `You win, ${playerSelection} beats ${computerSelection}`;
-            } else if (computerSelection == 'paper') {
-                return `You loose, ${playerSelection} beats ${computerSelection}`;
-            }
-            break;
-        case 'paper':
-            if (computerSelection == 'rock') {
-                return `You win, ${playerSelection} beats ${computerSelection}`;
-            } else if (computerSelection == 'scissors') {
-                return `You loose, ${playerSelection} beats ${computerSelection}`;
-            }
-            break;
-        case 'scissors':
-            if (computerSelection == 'paper') {
-                return `You win, ${playerSelection} beats ${computerSelection}`;
-            } else if (computerSelection == 'rock') {
-                return `You loose, ${playerSelection} beats ${computerSelection}`;
-            }
-            break;
-        default:
-            break;
-    }
+  if (playerSelection === computerSelection) {
+    return "Tie";
+  }
+
+  if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
+    return `You win, ${playerSelection} beats ${computerSelection}`;
+  }
+
+  return `You loose, ${computerSelection} beats ${playerSelection}`;
 }
+
 
 function game() {
     let playerWins = 0,
