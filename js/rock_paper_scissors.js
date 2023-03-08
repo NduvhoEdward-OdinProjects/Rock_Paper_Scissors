@@ -42,8 +42,14 @@ const matchComments = document.createElement('div');
 matchOutcomes.classList.add('scoreBar');
 matchComments.classList.add('matchComments');
 
-matchOutcomes.textContent = 'Begin!';
-matchComments.textContent = "You've got this!";
+function resetScore(){
+    playerWins = 0;
+    playerLoses = 0;
+    ties = 0;
+    matchOutcomes.textContent = 'Begin!';
+    matchComments.textContent = "You've got this!";
+}
+resetScore();
 
 bod.appendChild(matchOutcomes);
 bod.appendChild(matchComments);
@@ -72,6 +78,13 @@ function statsUpdate(outCome) {
 function gameStatus(roundsSoFar) {
     if (playerWins==5||playerLoses==5) {
         pauseListeners();
+        if (playerWins==5) {
+            matchComments.textContent = "Yeyy!";
+        } else {
+            const machinePhobia = 'The machines are out to get us, ' + 
+                                  'they really are, I saw it on TV. This is how it starts.';
+            matchComments.textContent = machinePhobia;
+        }
     }
 }
 
@@ -81,10 +94,24 @@ function pauseListeners() {
     });
 }
 
+// Game restart button
 const restartBtn = document.createElement('button');
 restartBtn.classList.add('restart-btn');
 restartBtn.textContent = 'Play Again';
 
 bod.appendChild(restartBtn);
+
+restartBtn.addEventListener('click', restartGame);
+
+function restartGame() {
+    resetScore();
+    resumeListeners();
+}
+
+function resumeListeners() {
+    buttons.forEach((btn)=>btn.addEventListener('click',playGame));
+}
+
+//__________________________
 
 
