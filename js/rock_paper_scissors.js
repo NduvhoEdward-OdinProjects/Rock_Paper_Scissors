@@ -31,6 +31,7 @@ function game() {
         computerWins = 0,
         ties = 0;
 
+        /*
     for (let i = 0; i < 5; i++) {
 
         const playerSelection = prompt('Please enter a move of your choice between "Rock" "Paper" and "Scissor": ');
@@ -45,6 +46,7 @@ function game() {
             ties++;
         }
     }
+    */
 
     console.log(`The player won ${playerWins} times,`);
     console.log(`Lost ${computerWins} times,`);

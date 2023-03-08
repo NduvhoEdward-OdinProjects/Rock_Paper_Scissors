@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(26, 22, 22);
+}
+
+p {
+    font-size: 32px;
+    color: aquamarine;
+}
+
+.player-selections {
+    display: flex;
+    gap: 32px;
+}
+
+.player-selections > button {
+    padding: 40px;
+    background-color: aqua;
+    font-size: 24px;
+    color: blue;
+    border-radius: 8px;
+}
+
