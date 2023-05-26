@@ -47,7 +47,7 @@ function resetScore(){
     playerLoses = 0;
     ties = 0;
     matchOutcomes.textContent = 'Begin!';
-    matchComments.textContent = "You've got this!";
+    matchComments.textContent = "Machines wont show you mercy, we've all seen The Matrix, so...";
 }
 resetScore();
 
