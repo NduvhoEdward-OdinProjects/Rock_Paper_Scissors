@@ -7,9 +7,9 @@ This is a simple implementation of the classic game "Rock Paper Scissors" using 
 - When you open the game link, you will see a user interface representing the game board.
 - You can choose either rock, paper, or scissors by clicking on the corresponding buttons.
 - The computer will randomly select its choice.
-- The game will determine the winner based on the choices made by you and the computer.
-- The game will display the result on the screen, indicating whether you win, lose, or it's a tie.
-- You can play multiple rounds by selecting your choice again.
+- The game will increment the score for the round's winner.
+- The the match end when one of the players gets 5 wins.
+- You can select to go again if you wish, or if you wich to restart.
 
 ## Technologies Used
 
@@ -32,7 +32,6 @@ The game is deployed and hosted using GitHub Pages, allowing easy access and pla
 The current version of the game is a basic implementation. Here are some ideas for future enhancements:
 
 - Adding animations and transitions to improve the user experience.
-- Implementing a scoring system to keep track of wins and losses.
 - Incorporating additional game modes or variations.
 - Making the game responsive for different screen sizes and devices.
 
@@ -44,4 +43,4 @@ If you would like to contribute to the development of this game, feel free to fo
 
 The game is open-source and released under the [MIT License](LICENSE). You are free to use, modify, and distribute the code. However, please provide attribution to the original repository if you decide to use or adapt the game.
 
-Enjoy playing Rock Paper Scissors!
+Enjoy playing the game!
